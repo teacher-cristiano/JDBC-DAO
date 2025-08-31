@@ -3,23 +3,23 @@ package model.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Department implements Serializable {
-    private int id;
+public class Departamento implements Serializable {
+    private Integer id;
     private String nome;
 
-    public Department(){
+    public Departamento(){
     }
 
-    public Department(int id, String nome) {
+    public Departamento(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -34,13 +34,13 @@ public class Department implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Department that = (Department) o;
-        return id == that.id;
+        Departamento that = (Departamento) o;
+        return Objects.equals(id, that.id) && Objects.equals(nome, that.nome);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id);
+        return Objects.hash(id, nome);
     }
 
     @Override
